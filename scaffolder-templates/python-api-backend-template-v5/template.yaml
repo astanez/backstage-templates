@@ -81,7 +81,7 @@ spec:
                   title: Image Host
                   type: string
                   description: Host for storing image
-                  default: quay-bjxwq.apps.cluster-bjxwq.sandbox392.opentlc.com
+                  default: quay-nlqdh.apps.cluster-nlqdh.sandbox3022.opentlc.com
                 image_organization:
                   title: Organization
                   type: string
@@ -104,7 +104,7 @@ spec:
               title: Repo Host
               type: string
               description: Your SCM host
-              default: gitlab-gitlab.apps.cluster-bjxwq.sandbox392.opentlc.com
+              default: gitlab-gitlab.apps.cluster-nlqdh.sandbox3022.opentlc.com
             owner:
               title: Repo Owner
               type: string
@@ -120,7 +120,7 @@ spec:
           type: string
           title: FQDN of OCP cluster
           description: FQDN of OCP cluster
-          default: .apps.cluster-bjxwq.sandbox392.opentlc.com
+          default: .apps.cluster-nlqdh.sandbox3022.opentlc.com
   steps:
     - id: template
       name: Fetch Skeleton + Template
