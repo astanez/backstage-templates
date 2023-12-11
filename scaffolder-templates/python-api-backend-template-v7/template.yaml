@@ -14,7 +14,7 @@ spec:
     - title: Provide Information for Application
       required:
         - component_id
-        - java_package_name
+      #  - java_package_name
       properties:
         component_id:
           title: Name
