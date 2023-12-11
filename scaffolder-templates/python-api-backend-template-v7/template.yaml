@@ -1,11 +1,12 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: python-backend-tmpl-v6
-  title: Python API backend with ArgoCD and a Tekton Pipeline-v6
-  description: Create a simple python API backend with ArgoCD and a Tekton Pipeline-v6
+  name: python-backend-tmpl-v7
+  title: Python API backend with ArgoCD and a Tekton Pipeline-v7
+  description: Create a simple python API backend with ArgoCD and a Tekton Pipeline-v7
   tags:
     - recommended
+
 spec:
   owner: rhdh
   type: service
@@ -19,24 +20,24 @@ spec:
           title: Name
           type: string
           description: Unique name of the component
-          default: py-app-v6
+          default: py-app-v7
           ui:field: EntityNamePicker
           maxLength: 14
-        group_id:
-          title: Group Id
-          type: string
-          default: redhat.janus
-          description: Maven Group Id
-        artifact_id:
-          title: Artifact Id
-          type: string
-          default: py-app-v6_art
-          description: Maven Artifact Id
-        java_package_name:
-          title: Java Package Name
-          default: org.redhat.janus
-          type: string
-          description: Name for the java package. eg (com.redhat.blah)
+        # group_id:
+        #   title: Group Id
+        #   type: string
+        #   default: redhat.janus
+        # description: Maven Group Id
+        # artifact_id:
+        #   title: Artifact Id
+        #   type: string
+        #   default: py-app-v7_art
+        #   description: Maven Artifact Id
+        # java_package_name:
+        #   title: Java Package Name
+        #   default: org.redhat.janus
+        #   type: string
+        #   description: Name for the java package. eg (com.redhat.blah)
         description:
           title: Description
           type: string
@@ -130,9 +131,12 @@ spec:
           component_id: ${{ parameters.component_id }}
           description: ${{ parameters.description }}
           namespace: ${{ parameters.component_id }}-dev
-          group_id: ${{ parameters.group_id }}
-          artifact_id: ${{ parameters.artifact_id }}
-          java_package_name: ${{ parameters.java_package_name }}
+          # group_id: ${{ parameters.group_id }}
+          # artifact_id: ${{ parameters.artifact_id }}
+          # java_package_name: ${{ parameters.java_package_name }}
+          group_id: gr-id-${{ parameters.component_id }}
+          artifact_id: art-id-${{ parameters.component_id }}
+          java_package_name: jpn-${{ parameters.component_id }}
           owner: ${{ user.entity.metadata.name }}
           # cluster: .apps.cluster-c4zsp.sandbox160.opentlc.com
           cluster: ${{ parameters.cluster }}
@@ -178,7 +182,7 @@ spec:
           image_tag: ${{ parameters.image_tag }}
           port: 8080
           repository_host: ${{ parameters.repo.host }}
-          deployment_name: python-bcknd-tmpl-v6
+          deployment_name: python-bcknd-tmpl-v7
         targetPath: ./tenant-gitops
 
     - id: publish-gitops
