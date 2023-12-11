@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: python-backend-tmpl-v5
-  title: Python API backend with ArgoCD and a Tekton Pipeline-v5
-  description: Create a simple python API backend with ArgoCD and a Tekton Pipeline-v5
+  name: python-backend-tmpl-v6
+  title: Python API backend with ArgoCD and a Tekton Pipeline-v6
+  description: Create a simple python API backend with ArgoCD and a Tekton Pipeline-v6
   tags:
     - recommended
     - java
@@ -22,7 +22,7 @@ spec:
           title: Name
           type: string
           description: Unique name of the component
-          default: py-app-v5
+          default: py-app-v6
           ui:field: EntityNamePicker
           maxLength: 14
         group_id:
@@ -33,7 +33,7 @@ spec:
         artifact_id:
           title: Artifact Id
           type: string
-          default: py-app-v5_art
+          default: py-app-v6_art
           description: Maven Artifact Id
         java_package_name:
           title: Java Package Name
@@ -181,7 +181,7 @@ spec:
           image_tag: ${{ parameters.image_tag }}
           port: 8080
           repository_host: ${{ parameters.repo.host }}
-          deployment_name: python-bcknd-tmpl-v5
+          deployment_name: python-bcknd-tmpl-v6
         targetPath: ./tenant-gitops
 
     - id: publish-gitops
