@@ -1,0 +1,120 @@
+openapi: 3.0.3
+info:
+  title: python-app API
+  version: 0.1.0
+servers:
+- url: http://python-backend-my-python-svc-dev.apps.ocp5.stormshift.coe.muc.redhat.com
+  description: Auto generated value
+- url: https://python-backend-my-python-svc-dev.apps.ocp5.stormshift.coe.muc.redhat.com
+  description: Auto generated value  
+paths:
+  /:
+    get:
+      summary: Root
+      operationId: root__get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+  /echo/:
+    get:
+      summary: Echo
+      operationId: echo_echo__get
+      parameters:
+        - name: text
+          in: query
+          required: true
+          schema:
+            type: string
+            title: Text
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /distance/:
+    get:
+      summary: Get Distance
+      operationId: get_distance_distance__get
+      parameters:
+        - name: lat1
+          in: query
+          required: false
+          schema:
+            type: number
+            default: 0
+            title: Lat1
+        - name: long1
+          in: query
+          required: false
+          schema:
+            type: number
+            default: 0
+            title: Long1
+        - name: lat2
+          in: query
+          required: false
+          schema:
+            type: number
+            default: 0
+            title: Lat2
+        - name: long2
+          in: query
+          required: false
+          schema:
+            type: number
+            default: 0
+            title: Long2
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      title: ValidationError
